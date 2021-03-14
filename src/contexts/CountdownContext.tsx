@@ -40,14 +40,15 @@ export function CountdownProvider({ children }: CountdownProvidaerProps) {
         }
     }, [isActive, time]);
 
-    function startCountdown() {
+    function resetCountdown() {
         clearTimeout(countdownTimeout);
-        setIsActive(true);
+        setIsActive(false);
         setTime(0.05 * 60);
+        setHasFinished(false);
     }
 
-    function resetCountdown() {
-        setIsActive(false);
+    function startCountdown() {
+        setIsActive(true);
     }
 
     return (
